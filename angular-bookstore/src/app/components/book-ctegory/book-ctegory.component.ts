@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-ctegory.component.css']
 })
 export class BookCtegoryComponent implements OnInit {
-
+n
   constructor() { }
 
   ngOnInit(): void {

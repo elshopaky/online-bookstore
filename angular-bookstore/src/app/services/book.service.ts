@@ -10,13 +10,16 @@ import { map } from 'rxjs/operators';
 })
 export class BookService {
 
+ //get all books
  private baseUrl="http://localhost:8080/api/v1/books";
 
   constructor(private  http:HttpClient) { }
-
-  getBooks():Observable<Book[]>{
-   return  this.http.get<GetResponseBooks>(this.baseUrl)
-   .pipe(
+  //This method teturn observable of Book type
+  getBooks(theCategoryId:number):Observable<Book[]>{
+    //get books by category id
+    const searchUrl=`${this.baseUrl}/search/categoryid/?id=${theCategoryId}`;
+   return  this.http.get<GetResponseBooks>(searchUrl)
+   .pipe(  
     map(response=>response._embedded.books) 
    );
   }
