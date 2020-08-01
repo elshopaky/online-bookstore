@@ -17,7 +17,12 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 //api -> http://localhost:8080/api/v1/books/search/findBycategoryId/id=1
 //but to override default endpoint we use @RestResource 
 	
-@RestResource(path = "categoryid")	//api -> http://localhost:8080/api/v1/books/search/categoryid/id=1
+@RestResource(path = "categoryid")	//api -> http://localhost:8080/api/v1/books/search/categoryid?id=1
 Page<Book>	findByCategoryId(@Param("id") Long id,Pageable page);
+
+//api -> http://localhost:8080/api/v1/books/search/searchbyKeyword?name=java
+@RestResource(path = "searchbyKeyword")
+Page<Book>	findByNameContaining(@Param("name") String keyword,Pageable page);
+
 
 }

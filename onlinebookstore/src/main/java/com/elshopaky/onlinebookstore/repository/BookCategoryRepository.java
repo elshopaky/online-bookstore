@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.elshopaky.onlinebookstore.entity.BookCategory;
 
 //This annotation to override rest end point to be ( /book-category ) instead of default ( /bookCategories )
-//and make property name bookCategory.
+//and make property name in Json object to  bookCategory.
 
 @RepositoryRestResource(collectionResourceRel = "bookCategory",path = "book-category")
 @CrossOrigin("*") //accept request from another app (http://localhost:4200/)
